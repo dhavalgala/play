@@ -1,0 +1,100 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+// Global Android Styling --Start
+
+.toolbar-background {
+    background-color: $primary-color !important;
+}
+
+.toolbar-title {
+    color: $white;
+}
+
+.tabs-md-primary .tab-button[aria-selected=true], .tabs-md-primary .tab-button[aria-selected=true] .tab-button-icon {
+    color: $white;
+    border-bottom: 4px solid $secondary-light-color;
+}
+
+.tabs-md-primary .tab-button[aria-selected=false], .tabs-md-primary .tab-button[aria-selected=false] .tab-button-icon {
+    border-bottom: 4px solid $primary-color;
+}
+
+.tabs-md .tab-button-text {
+    font-size: 1.4rem;
+}
+
+// Global Android Styling --End
+
+// Global iOS Styling --Start
+
+.tabs-ios-primary .tab-button[aria-selected=true] {
+    color: #fff;
+    border-bottom: 3px solid #ec407a;
+}
+
+.tabs-ios .tab-button.has-title-only .tab-button-text {
+    line-height: normal;
+}
+
+// Global iOS Styling --End
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
+
+* {
+  font-family: 'Comfortaa';
+}
