@@ -1,5 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { PlayService } from '../providers/play-service';
+import { ViewsPipe } from '../providers/views.pipe';
+import { TimeAgoPipe } from '../providers/timeago.pipe';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TrendingTab } from '../pages/trending/trending';
@@ -10,7 +13,9 @@ import { PlaylistTab } from '../pages/playlist/playlist';
     MyApp,
     HomePage,
     TrendingTab,
-    PlaylistTab
+    PlaylistTab,
+    ViewsPipe,
+    TimeAgoPipe
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -22,6 +27,6 @@ import { PlaylistTab } from '../pages/playlist/playlist';
     TrendingTab,
     PlaylistTab
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, PlayService],
 })
 export class AppModule { }

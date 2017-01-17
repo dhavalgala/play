@@ -21,8 +21,6 @@ export class HomePage {
     this.playlist = PlaylistTab;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsPage');
-  }
+  ionViewDidLoad() { }
 
 }

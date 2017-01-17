@@ -8,13 +8,16 @@
 </ion-header>
 <ion-content class="card-background-page">
 
-    <ion-card class="custom-card">
-        <img src="https://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png" />
-        <div class="card-title">São Paulo</div>
-        <div class="card-subtitle">41 Listings</div>
-    </ion-card>
+    <div *ngIf="trendingVideos">
+        <ion-card class="custom-card" *ngFor="let videos of trendingVideos.items">
+            <img [src]="videos.snippet.thumbnails.high.url" />
+            <div class="card-title">{{videos.snippet.title}}</div>
+            <div class="card-subtitle">{{videos.snippet.channelTitle}} | {{videos.statistics.viewCount | formatViews}} views</div>
+            <div class="card-subtitle">{{videos.snippet.publishedAt | timeAgo}}</div>
+        </ion-card>
+    </div>
 
-    <ion-card class="custom-card">
+    <!--<ion-card class="custom-card">
         <img src="https://ionicframework.com/dist/preview-app/www/assets/img/card-amsterdam.png" />
         <div class="card-title">Amsterdam</div>
         <div class="card-subtitle">64 Listings</div>
@@ -30,6 +33,6 @@
         <img src="https://ionicframework.com/dist/preview-app/www/assets/img/card-madison.png" />
         <div class="card-title">Madison</div>
         <div class="card-subtitle">28 Listings</div>
-    </ion-card>
+    </ion-card>-->
 
 </ion-content>
