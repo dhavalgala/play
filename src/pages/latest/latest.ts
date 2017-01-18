@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { PlayService } from '../../providers/play-service';
+import { App, NavController, NavParams } from 'ionic-angular';
+import { WatchVideoPage } from '../watch/watch';
 
 @Component({
     templateUrl: 'latest.html'
@@ -8,7 +10,7 @@ export class LatestTab {
 
     latestVideos: any;
 
-    constructor(private playService: PlayService) { }
+    constructor(public app: App, public navCtrl: NavController, public navParams: NavParams, private playService: PlayService) { }
 
     ionViewDidLoad() {
         this.getLatestVideos();
@@ -40,5 +42,12 @@ export class LatestTab {
                 console.log(error);
             }
         );
+    }
+
+    watchVideo(videoId) {
+        let nav = this.app.getRootNav();
+        nav.push(WatchVideoPage, {
+            videoId: videoId
+        });
     }
 }

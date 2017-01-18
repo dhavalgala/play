@@ -9,7 +9,7 @@
 <ion-content class="card-background-page">
 
     <div *ngIf="trendingVideos">
-        <ion-card class="custom-card" *ngFor="let videos of trendingVideos.items">
+        <ion-card class="custom-card" *ngFor="let videos of trendingVideos.items" (click)="watchVideo(videos.id);">
             <img [src]="videos.snippet.thumbnails.high.url" />
             <div class="card-title">{{videos.snippet.title}}</div>
             <div class="card-subtitle">{{videos.snippet.channelTitle}} | {{videos.statistics.viewCount | formatViews}} views</div>

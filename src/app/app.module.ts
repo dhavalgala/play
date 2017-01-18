@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TrendingTab } from '../pages/trending/trending';
 import { LatestTab } from '../pages/latest/latest';
+import { WatchVideoPage } from '../pages/watch/watch';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LatestTab } from '../pages/latest/latest';
     TrendingTab,
     LatestTab,
     ViewsPipe,
-    TimeAgoPipe
+    TimeAgoPipe,
+    WatchVideoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -25,7 +27,8 @@ import { LatestTab } from '../pages/latest/latest';
     MyApp,
     HomePage,
     TrendingTab,
-    LatestTab
+    LatestTab,
+    WatchVideoPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, PlayService],
 })

@@ -38,13 +38,21 @@
     font-size: 1.4rem;
 }
 
+.bar-button-default-md {
+    color: $white;
+}
+
+.bar-button-default-md:hover:not(.disable-hover) {
+    color: $white;
+}
+
 // Global Android Styling --End
 
 // Global iOS Styling --Start
 
 .tabs-ios-primary .tab-button[aria-selected=true] {
-    color: #fff;
-    border-bottom: 3px solid #ec407a;
+    color: $white;
+    border-bottom: 3px solid $secondary-light-color;
 }
 
 .tabs-ios .tab-button.has-title-only .tab-button-text {
