@@ -2,23 +2,23 @@ import { Component } from '@angular/core';
 import { PlayService } from '../../providers/play-service';
 
 @Component({
-    templateUrl: 'trending.html'
+    templateUrl: 'latest.html'
 })
-export class TrendingTab {
+export class LatestTab {
 
-    trendingVideos: any;
+    latestVideos: any;
 
     constructor(private playService: PlayService) { }
 
     ionViewDidLoad() {
-        this.getTrendingVideos();
+        this.getLatestVideos();
     }
 
-    getTrendingVideos() {
-        this.playService.getTrendingVideos().subscribe(
+    getLatestVideos() {
+        this.playService.getLatestVideos().subscribe(
             response => {
                 console.log(response);
-                this.trendingVideos = response;
+                this.latestVideos = response;
             },
             error => {
                 console.log(error);
@@ -26,14 +26,14 @@ export class TrendingTab {
         );
     }
 
-    getMoreTrendingVideos(infiniteScroll) {
-        this.playService.getMoreTrendingVideos(this.trendingVideos.nextPageToken).subscribe(
+    getMoreLatestVideos(infiniteScroll) {
+        this.playService.getMoreLatestVideos(this.latestVideos.nextPageToken).subscribe(
             response => {
                 console.log(response);
                 for (let i = 0; i < response.items.length; i++) {
-                    this.trendingVideos.items.push(response.items[i]);
+                    this.latestVideos.items.push(response.items[i]);
                 }
-                this.trendingVideos.nextPageToken = response.nextPageToken;
+                this.latestVideos.nextPageToken = response.nextPageToken;
                 infiniteScroll.complete();
             },
             error => {

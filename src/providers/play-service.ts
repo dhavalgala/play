@@ -24,7 +24,7 @@ export class PlayService {
     this.params.set("key", "AIzaSyAx9mqCCaF9Bp7AkatHxg9SVVfGxgVwohM");
   }
 
-  getPopularVideos() {
+  getTrendingVideos() {
     this.params.set("chart", "mostPopular");
     this.params.set("type", "video");
     this.params.set("maxResults", "10");
@@ -33,5 +33,39 @@ export class PlayService {
     this.options.search = this.params;
 
     return this.http.get("https://www.googleapis.com/youtube/v3/videos", this.options).map(res => res.json());
+  }
+
+  getMoreTrendingVideos(nextPageToken) {
+    this.params.set("chart", "mostPopular");
+    this.params.set("type", "video");
+    this.params.set("maxResults", "10");
+    this.params.set("part", "id,snippet,statistics");
+    this.params.set("pageToken", nextPageToken);
+
+    this.options.search = this.params;
+
+    return this.http.get("https://www.googleapis.com/youtube/v3/videos", this.options).map(res => res.json());
+  }
+
+  getLatestVideos() {
+    this.params.set("type", "video");
+    this.params.set("order", "date");
+    this.params.set("maxResults", "10");
+    this.params.set("part", "id,snippet");
+    this.options.search = this.params;
+
+    return this.http.get("https://www.googleapis.com/youtube/v3/search", this.options).map(res => res.json());
+  }
+
+  getMoreLatestVideos(nextPageToken) {
+    this.params.set("type", "video");
+    this.params.set("order", "date");
+    this.params.set("maxResults", "10");
+    this.params.set("part", "id,snippet");
+    this.params.set("pageToken", nextPageToken);
+
+    this.options.search = this.params;
+
+    return this.http.get("https://www.googleapis.com/youtube/v3/search", this.options).map(res => res.json());
   }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { TrendingTab } from '../trending/trending';
-import { PlaylistTab } from '../playlist/playlist';
+import { LatestTab } from '../latest/latest';
 
 @Component({
   templateUrl: 'home.html'
@@ -10,7 +10,7 @@ import { PlaylistTab } from '../playlist/playlist';
 export class HomePage {
 
   trending: any;
-  playlist: any;
+  latest: any;
   tabsPlacement = "top";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public plt: Platform) {
@@ -18,7 +18,7 @@ export class HomePage {
       this.tabsPlacement = "bottom";
     }
     this.trending = TrendingTab;
-    this.playlist = PlaylistTab;
+    this.latest = LatestTab;
   }
 
   ionViewDidLoad() { }

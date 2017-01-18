@@ -6,14 +6,14 @@ import { TimeAgoPipe } from '../providers/timeago.pipe';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TrendingTab } from '../pages/trending/trending';
-import { PlaylistTab } from '../pages/playlist/playlist';
+import { LatestTab } from '../pages/latest/latest';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TrendingTab,
-    PlaylistTab,
+    LatestTab,
     ViewsPipe,
     TimeAgoPipe
   ],
@@ -25,7 +25,7 @@ import { PlaylistTab } from '../pages/playlist/playlist';
     MyApp,
     HomePage,
     TrendingTab,
-    PlaylistTab
+    LatestTab
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, PlayService],
 })

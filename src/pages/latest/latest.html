@@ -8,16 +8,16 @@
 </ion-header>
 <ion-content class="card-background-page">
 
-    <div *ngIf="trendingVideos">
-        <ion-card class="custom-card" *ngFor="let videos of trendingVideos.items">
+    <div *ngIf="latestVideos">
+        <ion-card class="custom-card" *ngFor="let videos of latestVideos.items">
             <img [src]="videos.snippet.thumbnails.high.url" />
             <div class="card-title">{{videos.snippet.title}}</div>
-            <div class="card-subtitle">{{videos.snippet.channelTitle}} | {{videos.statistics.viewCount | formatViews}} views</div>
+            <div class="card-subtitle">{{videos.snippet.channelTitle}}</div>
             <div class="card-subtitle">{{videos.snippet.publishedAt | timeAgo}}</div>
         </ion-card>
     </div>
 
-    <ion-infinite-scroll (ionInfinite)="getMoreTrendingVideos($event)">
+    <ion-infinite-scroll (ionInfinite)="getMoreLatestVideos($event)">
         <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
 
