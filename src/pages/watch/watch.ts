@@ -7,9 +7,11 @@ import { Platform } from 'ionic-angular';
 })
 export class WatchVideoPage {
 
+    private videoId: any;
+
     constructor(public navCtrl: NavController, public navParams: NavParams, public plt: Platform) {
-        let videoId = navParams.get('videoId');
-        console.log("videoId=" + videoId);
+        this.videoId = navParams.get('videoId');
+        console.log("videoId=" + this.videoId);
     }
 
     ionViewDidLoad() { }

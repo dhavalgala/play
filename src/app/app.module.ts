@@ -1,8 +1,13 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+
 import { PlayService } from '../providers/play-service';
-import { ViewsPipe } from '../providers/views.pipe';
-import { TimeAgoPipe } from '../providers/timeago.pipe';
+
+import { YoutubeDirective } from '../directives/youtube-iframe.direcive';
+
+import { ViewsPipe } from '../pipes/views.pipe';
+import { TimeAgoPipe } from '../pipes/timeago.pipe';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TrendingTab } from '../pages/trending/trending';
@@ -12,11 +17,12 @@ import { WatchVideoPage } from '../pages/watch/watch';
 @NgModule({
   declarations: [
     MyApp,
+    ViewsPipe,
+    TimeAgoPipe,
+    YoutubeDirective,
     HomePage,
     TrendingTab,
     LatestTab,
-    ViewsPipe,
-    TimeAgoPipe,
     WatchVideoPage
   ],
   imports: [
