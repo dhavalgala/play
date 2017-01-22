@@ -3,6 +3,19 @@
         <ion-title>Watch</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content>
-    <div [youtube]="videoId"></div>
+<ion-content class="page-watch">
+    <div [youtube]="videoId" class="video-player"></div>
+    <div class="video-detail">
+        <ion-list class="related-videos-list" *ngIf="relatedVideos">
+            <ion-item *ngFor="let video of relatedVideos.items">
+                <ion-thumbnail item-left>
+                    <img [src]="video.snippet.thumbnails.high.url" *ngIf="!video.snippet.thumbnails.maxres" />
+                    <img [src]="video.snippet.thumbnails.maxres.url" *ngIf="video.snippet.thumbnails.maxres" />
+                </ion-thumbnail>
+                <h2 class="video-title">{{video.snippet.title}}</h2>
+                <p>{{video.snippet.channelTitle}}</p>
+                <p>{{video.snippet.publishedAt | timeAgo}}</p>
+            </ion-item>
+        </ion-list>
+    </div>
 </ion-content>

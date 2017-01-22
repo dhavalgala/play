@@ -16,7 +16,7 @@ export class YoutubeDirective {
     ngOnInit() {
         console.log(this.youtubeVideoId);
         let iframeElement = this.renderer.createElement(this.nativeElement, "iframe");
-        this.renderer.setElementAttribute(iframeElement, "src", "http://www.youtube.com/embed/" + this.youtubeVideoId+"?autoplay=1&modestbranding=1&controls=2");
+        this.renderer.setElementAttribute(iframeElement, "src", "http://www.youtube.com/embed/" + this.youtubeVideoId+"?modestbranding=1&controls=2");
         this.renderer.setElementAttribute(iframeElement, "frameborder", "0");
         this.renderer.setElementAttribute(iframeElement, "allowscriptaccess", "always");
         this.renderer.setElementAttribute(iframeElement, "allowfullscreen", "allowfullscreen");

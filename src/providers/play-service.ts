@@ -68,4 +68,30 @@ export class PlayService {
 
     return this.http.get("https://www.googleapis.com/youtube/v3/search", this.options).map(res => res.json());
   }
+
+  getVideoDetail(videoId) {
+    let params: URLSearchParams = new URLSearchParams();
+
+    params.set("key", "AIzaSyAx9mqCCaF9Bp7AkatHxg9SVVfGxgVwohM");
+    params.set("id", videoId);
+    params.set("part", "snippet,statistics");
+
+    this.options.search = params;
+
+    return this.http.get("https://www.googleapis.com/youtube/v3/videos", this.options).map(res => res.json());
+  }
+
+  getRelatedVideos(videoId) {
+    let params: URLSearchParams = new URLSearchParams();
+
+    params.set("key", "AIzaSyAx9mqCCaF9Bp7AkatHxg9SVVfGxgVwohM");
+    params.set("relatedToVideoId", videoId);
+    params.set("type", "video");
+    params.set("maxResults", "10");
+    params.set("part", "id,snippet");
+
+    this.options.search = params;
+
+    return this.http.get("https://www.googleapis.com/youtube/v3/search", this.options).map(res => res.json());
+  }
 }
