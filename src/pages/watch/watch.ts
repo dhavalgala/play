@@ -25,7 +25,7 @@ export class WatchVideoPage {
         this.playService.getVideoDetail(this.videoId).subscribe(
             response => {
                 console.log(response);
-                this.videoDetail = response;
+                this.videoDetail = response.items[0];
             },
             error => {
                 console.log(error);
@@ -43,6 +43,12 @@ export class WatchVideoPage {
                 console.log(error);
             }
         );
+    }
+
+    watchVideo(videoId) {
+        this.navCtrl.push(WatchVideoPage, {
+            videoId: videoId
+        });
     }
 
 }

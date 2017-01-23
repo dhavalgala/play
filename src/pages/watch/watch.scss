@@ -8,6 +8,23 @@
         position: absolute;
         top: 205px;
         width: 100%;
+        .video-detail-content {
+            .video-title-main {
+                font-size: 1.9rem;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-word;
+            }
+            .video-description {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                word-break: break-word;
+            }
+        }
         .related-videos-list {
             ion-item {
                 ion-thumbnail {

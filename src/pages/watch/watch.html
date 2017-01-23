@@ -6,8 +6,13 @@
 <ion-content class="page-watch">
     <div [youtube]="videoId" class="video-player"></div>
     <div class="video-detail">
+        <div class="video-detail-content" *ngIf="videoDetail" padding>
+            <h2 class="video-title-main">{{videoDetail.snippet.title}}</h2>
+            <p>{{videoDetail.snippet.channelTitle}} | {{videoDetail.statistics.viewCount | number:0}} views</p>
+            <div class="video-description" [innerHTML]="videoDetail.snippet.description" *ngIf="videoDetail.snippet.description && videoDetail.snippet.description!=''"></div>
+        </div>
         <ion-list class="related-videos-list" *ngIf="relatedVideos">
-            <ion-item *ngFor="let video of relatedVideos.items">
+            <ion-item *ngFor="let video of relatedVideos.items" (click)="watchVideo(video.id.videoId)">
                 <ion-thumbnail item-left>
                     <img [src]="video.snippet.thumbnails.high.url" *ngIf="!video.snippet.thumbnails.maxres" />
                     <img [src]="video.snippet.thumbnails.maxres.url" *ngIf="video.snippet.thumbnails.maxres" />
