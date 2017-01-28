@@ -9,6 +9,15 @@
         top: 205px;
         width: 100%;
         .video-detail-content {
+            .no-padding {
+                padding: 0;
+                ion-col {
+                    padding: 0;
+                    ion-icon {
+                        font-size: 25px;
+                    }
+                }
+            }
             .video-title-main {
                 font-size: 1.9rem;
                 overflow: hidden;
@@ -17,12 +26,14 @@
                 -webkit-box-orient: vertical;
                 word-break: break-word;
             }
-            .video-description {
+            #grow {
+                -moz-transition: height .5s;
+                -ms-transition: height .5s;
+                -o-transition: height .5s;
+                -webkit-transition: height .5s;
+                transition: height .5s;
+                height: 0;
                 overflow: hidden;
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
-                word-break: break-word;
             }
         }
         .related-videos-list {

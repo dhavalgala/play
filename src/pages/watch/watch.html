@@ -7,9 +7,21 @@
     <div [youtube]="videoId" class="video-player"></div>
     <div class="video-detail">
         <div class="video-detail-content" *ngIf="videoDetail" padding>
-            <h2 class="video-title-main">{{videoDetail.snippet.title}}</h2>
+            <ion-grid class="no-padding" (click)="growDiv();">
+                <ion-row>
+                    <ion-col width-90>
+                        <h2 class="video-title-main">{{videoDetail.snippet.title}}</h2>
+                    </ion-col>
+                    <ion-col width-10 text-right>
+                        <ion-icon name="ios-arrow-down" *ngIf="!showDesc"></ion-icon>
+                        <ion-icon name="ios-arrow-up" *ngIf="showDesc"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <div id="grow">
+                <div class="video-description" [innerHTML]="videoDetail.snippet.description" *ngIf="videoDetail.snippet.description && videoDetail.snippet.description!=''"></div>
+            </div>
             <p>{{videoDetail.snippet.channelTitle}} | {{videoDetail.statistics.viewCount | number:0}} views</p>
-            <div class="video-description" [innerHTML]="videoDetail.snippet.description" *ngIf="videoDetail.snippet.description && videoDetail.snippet.description!=''"></div>
         </div>
         <ion-list class="related-videos-list" *ngIf="relatedVideos">
             <ion-item *ngFor="let video of relatedVideos.items" (click)="watchVideo(video.id.videoId)">

@@ -11,6 +11,7 @@ export class WatchVideoPage {
     private videoId: any;
     videoDetail: any;
     relatedVideos: any;
+    showDesc: boolean = false;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public plt: Platform, private playService: PlayService) {
         this.videoId = navParams.get('videoId');
@@ -26,6 +27,9 @@ export class WatchVideoPage {
             response => {
                 console.log(response);
                 this.videoDetail = response.items[0];
+                if (this.videoDetail.snippet.description) {
+                    this.videoDetail.snippet.description = this.videoDetail.snippet.description.split(/[\r\n]+/g).join('<br/>');
+                }
             },
             error => {
                 console.log(error);
@@ -49,6 +53,20 @@ export class WatchVideoPage {
         this.navCtrl.push(WatchVideoPage, {
             videoId: videoId
         });
+    }
+
+    growDiv() {
+        if (this.videoDetail.snippet.description) {
+            let growDiv = document.getElementById('grow');
+            if (growDiv.clientHeight) {
+                this.showDesc = false;
+                growDiv.style.height = 0 + "px";
+            } else {
+                this.showDesc = true;
+                var wrapper = document.querySelector('.video-description');
+                growDiv.style.height = wrapper.clientHeight + "px";
+            }
+        }
     }
 
 }
