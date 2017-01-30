@@ -1,8 +1,8 @@
-<ion-header>
+<!--<ion-header>
     <ion-navbar>
         <ion-title>Watch</ion-title>
     </ion-navbar>
-</ion-header>
+</ion-header>-->
 <ion-content class="page-watch">
     <div [youtube]="videoId" class="video-player"></div>
     <div class="video-detail">
@@ -21,7 +21,27 @@
             <div id="grow">
                 <div class="video-description" [innerHTML]="videoDetail.snippet.description" *ngIf="videoDetail.snippet.description && videoDetail.snippet.description!=''"></div>
             </div>
-            <p>{{videoDetail.snippet.channelTitle}} | {{videoDetail.statistics.viewCount | number:0}} views</p>
+            <p class="stats">
+                <span class="channel-title">{{videoDetail.snippet.channelTitle}}</span> |
+                <span class="video-views">{{videoDetail.statistics.viewCount | number:0}} views</span>
+            </p>
+            <ion-grid class="no-padding">
+                <ion-row class="counts-row">
+                    <ion-col width-33>
+                        <ion-icon name="md-thumbs-up"></ion-icon>
+                        <span class="counts">{{videoDetail.statistics.likeCount | formatViews}}</span>
+                    </ion-col>
+                    <ion-col width-33>
+                        <ion-icon name="md-thumbs-down"></ion-icon>
+                        <span class="counts">{{videoDetail.statistics.dislikeCount | formatViews}}</span>
+                    </ion-col>
+                    <ion-col width-33 text-right>
+                        <button ion-button clear class="share-btn" (click)="shareVideo();">
+                            <ion-icon name="share-alt"></ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
         </div>
         <ion-list class="related-videos-list" *ngIf="relatedVideos">
             <ion-item *ngFor="let video of relatedVideos.items" (click)="watchVideo(video.id.videoId)">
@@ -30,8 +50,8 @@
                     <img [src]="video.snippet.thumbnails.maxres.url" *ngIf="video.snippet.thumbnails.maxres" />
                 </ion-thumbnail>
                 <h2 class="video-title">{{video.snippet.title}}</h2>
-                <p>{{video.snippet.channelTitle}}</p>
-                <p>{{video.snippet.publishedAt | timeAgo}}</p>
+                <p class="primary-text-color">{{video.snippet.channelTitle}}</p>
+                <p text-right>{{video.snippet.publishedAt | timeAgo}}</p>
             </ion-item>
         </ion-list>
     </div>

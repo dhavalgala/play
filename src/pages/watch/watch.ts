@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { SocialSharing } from 'ionic-native';
 import { Platform } from 'ionic-angular';
 import { PlayService } from '../../providers/play-service';
 
@@ -55,16 +56,26 @@ export class WatchVideoPage {
         });
     }
 
+    shareVideo() {
+        SocialSharing.share('', 'Watch "' + this.videoDetail.snippet.title + '" on YouTube', '', "https://youtu.be/" + this.videoId).then(() => {
+            // Success!
+        }).catch(() => {
+            // Error!
+        });
+    }
+
     growDiv() {
         if (this.videoDetail.snippet.description) {
             let growDiv = document.getElementById('grow');
             if (growDiv.clientHeight) {
                 this.showDesc = false;
                 growDiv.style.height = 0 + "px";
+                growDiv.style.marginBottom = 0 + "px";
             } else {
                 this.showDesc = true;
                 var wrapper = document.querySelector('.video-description');
                 growDiv.style.height = wrapper.clientHeight + "px";
+                growDiv.style.marginBottom = 10 + "px";
             }
         }
     }

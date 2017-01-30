@@ -15,6 +15,18 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+// Global Styling - All Platforms --Start
+
+.primary-text-color {
+    color: $primary-color !important;
+}
+
+.secondary-text-color {
+    color: $secondary-color !important;
+}
+
+// Global Styling - All Platforms --End
+
 // Global Android Styling --Start
 
 .toolbar-background {

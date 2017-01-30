@@ -15,6 +15,7 @@
                     padding: 0;
                     ion-icon {
                         font-size: 25px;
+                        margin-top: -7px;
                     }
                 }
             }
@@ -34,6 +35,33 @@
                 transition: height .5s;
                 height: 0;
                 overflow: hidden;
+            }
+            .stats {
+                margin-top: 0;
+                margin-bottom: 13px;
+            } 
+            .channel-title {
+                color: $primary-color;
+            }
+            .video-views {
+                color: $secondary-color;
+            }
+            .counts-row {
+                color: #757575;
+                span.counts {
+                    vertical-align: 4px;
+                    margin-left: 5px;
+                    font-size: 14px;
+                }
+                .share-btn {
+                    margin-top: -8px;
+                    padding-right: 0;
+                    margin-right: 0;
+                    margin-left: 0;
+                    margin-bottom: 0;
+                    padding-left: 0;
+                    color: #757575;
+                }
             }
         }
         .related-videos-list {
