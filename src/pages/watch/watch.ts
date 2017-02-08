@@ -50,6 +50,22 @@ export class WatchVideoPage {
         );
     }
 
+    getMoreRelatedVideos(infiniteScroll) {
+        this.playService.getMoreRelatedVideos(this.videoId, this.relatedVideos.nextPageToken).subscribe(
+            response => {
+                console.log(response);
+                for (let i = 0; i < response.items.length; i++) {
+                    this.relatedVideos.items.push(response.items[i]);
+                }
+                this.relatedVideos.nextPageToken = response.nextPageToken;
+                infiniteScroll.complete();
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
+
     watchVideo(videoId) {
         this.navCtrl.push(WatchVideoPage, {
             videoId: videoId
