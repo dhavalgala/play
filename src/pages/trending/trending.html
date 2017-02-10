@@ -9,15 +9,17 @@
 <ion-content class="card-background-page">
 
     <div *ngIf="trendingVideos">
-        <ion-card class="custom-card" *ngFor="let videos of trendingVideos.items" (click)="watchVideo(videos.id);">
-            <img [src]="videos.snippet.thumbnails.high.url" *ngIf="!videos.snippet.thumbnails.maxres" />
-            <img [src]="videos.snippet.thumbnails.maxres.url" *ngIf="videos.snippet.thumbnails.maxres" />
-            <div class="card-title">{{videos.snippet.title}}</div>
-            <div class="card-subtitle">
-                <span class="channel-title">{{videos.snippet.channelTitle}}</span> |
-                <span class="video-views">{{videos.statistics.viewCount | formatViews}} views</span>
+        <ion-card class="custom-card wrapper" *ngFor="let videos of trendingVideos.items;let i=index;" (click)="watchVideo(videos.id);">
+            <div [class]="i%2==0?'slide-right':'slide-left'">
+                <img [src]="videos.snippet.thumbnails.high.url" *ngIf="!videos.snippet.thumbnails.maxres" />
+                <img [src]="videos.snippet.thumbnails.maxres.url" *ngIf="videos.snippet.thumbnails.maxres" />
+                <div class="card-title">{{videos.snippet.title}}</div>
+                <div class="card-subtitle">
+                    <span class="channel-title">{{videos.snippet.channelTitle}}</span> |
+                    <span class="video-views">{{videos.statistics.viewCount | formatViews}} views</span>
+                </div>
+                <div class="card-subtitle days-ago">{{videos.snippet.publishedAt | timeAgo}}</div>
             </div>
-            <div class="card-subtitle days-ago">{{videos.snippet.publishedAt | timeAgo}}</div>
         </ion-card>
     </div>
 
